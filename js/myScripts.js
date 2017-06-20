@@ -14,31 +14,35 @@
         $("#employees").html(employeeHTML);
 
         var overlay = document.getElementsByClassName("overlay")[0];
-        var content = document.getElementsByClassName("content")[0];
+        var content = document.getElementsByClassName("content");
+        var selected = document.getElementById("active");
         var employeeBox = document.getElementsByClassName("employeeBox");
+        var modal = document.getElementsByClassName("modal")[0];
         function addEmployeeListener(x) {
+            overlay.style.display = "none";
+            content[x].style.display = "none";
             employeeBox[x].addEventListener("click", () => {
                 overlay.style.display = "block";
-                content.style.display = "block";
+                content[x].style.display = "block";
             });
         }
 
-        var overlayHTML = "<a href='#'><h3 class='exit'>X</h3></a>";
+        var overlayHTML = "";
         $.each(data.results, function (i, item) {
-            overlayHTML += "<img src='" + item.picture.large + "' class='image'>";
-            overlayHTML += "<h4 class='employeeName'>" + item.name.first + " " + item.name.last + "</h4>";
-            overlayHTML += "<p class='employeeEmail'>" + item.email + "</p>";
-            overlayHTML += "<p class='employeeLocation'>" + item.location.city + "</p>";
-            overlayHTML += "<p class='employeePhone'>" + item.phone + "</p>";
-            overlayHTML += "<p class='employeeAddress'>" + item.location.street + " " + item.location.city + ", " + item.location.state + " " + item.location.postcode + "</p>";
-            overlayHTML += "<p class='employeeBirth'>Birthday: " + item.dob + "</p>";
-            overlayHTML += "<div class='divider'></div>";
+            overlayHTML += "<div class='content'><a href='#'><h3 class='exit'>Back</h3></a>";
+            overlayHTML += "<img src='" + item.picture.large + "' class='modalImage'>";
+            overlayHTML += "<div class='modalText'><h4 class='modalName'>" + item.name.first + " " + item.name.last + "</h4>";
+            overlayHTML += "<p class='modalEmail'>" + item.email + "</p>";
+            overlayHTML += "<p class='modalLocation'>" + item.location.city + "</p>";
+            overlayHTML += "<p class='modalPhone'>" + item.phone + "</p>";
+            overlayHTML += "<p class='modalLocation'>" + item.location.street + " " + item.location.city + ", " + item.location.state + " " + item.location.postcode + "</p>";
+            overlayHTML += "<p class='modalBirth'>Birthday: " + item.dob + "</p></div></div>";
         });
-        $(".content").html(overlayHTML);
+        $(".modal").prepend(overlayHTML);
+        overlay.style.display = "none";
 
         document.getElementsByClassName("exit")[0].addEventListener("click", () => {
-            overlay.style.display = "none";
-            content.style.display = "none";
+            modal.style.display = "none";
         });
 
         addEmployeeListener(0);

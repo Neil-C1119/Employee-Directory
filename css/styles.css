@@ -69,14 +69,15 @@ p {
 
 h3 {
     height: 22px;
-    width: 22px;
+    width: 54px;
     text-align: center;
     font-family: sans-serif;
-    float: right;
     color: red;
     position: sticky;
     top: 0;
     background: black;
+    border-radius: 10%;
+    text-decoration: none;
 }
 
 .content {
@@ -84,8 +85,8 @@ h3 {
     position: absolute;
     top: 25%;
     left: 25%;
-    width: 50%;
-    height: 50%;
+    width: 45%;
+    height: 45%;
     padding: 16px;
     background-color: white;
     z-index: 1002;
@@ -96,4 +97,15 @@ h3 {
 
 .divider {
     border: 1px solid black;
+}
+
+.modalImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+}
+
+.modalText {
+    text-align: center;
 }
