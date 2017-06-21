@@ -63,7 +63,8 @@
             content[x].style.display = "block";
         });
         document.getElementsByClassName("exit")[x].addEventListener("click", () => {
-            modal.style.display = "none";
+            overlay.style.display = "none";
+            content[x].style.display = "none";
         });
     }
 
