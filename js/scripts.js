@@ -1,4 +1,9 @@
 ﻿$(document).ready(function () {
+    var overlay = document.getElementsByClassName("overlay")[0];
+    var content = document.getElementsByClassName("content");
+    var selected = document.getElementById("active");
+    var employeeBox = document.getElementsByClassName("employeeBox");
+    var modal = document.getElementsByClassName("modal")[0];
     var apiRandom = "https://randomuser.me/api/?nat=us&results=12";
     var dataRandom = { format: "json" };
     function callbackRandom(data) {
@@ -12,23 +17,6 @@
         });
         employeeHTML += "</ul>";
         $("#employees").html(employeeHTML);
-
-        var overlay = document.getElementsByClassName("overlay")[0];
-        var content = document.getElementsByClassName("content");
-        var selected = document.getElementById("active");
-        var employeeBox = document.getElementsByClassName("employeeBox");
-        var modal = document.getElementsByClassName("modal")[0];
-        function addEmployeeListener(x) {
-            overlay.style.display = "none";
-            content[x].style.display = "none";
-            employeeBox[x].addEventListener("click", () => {
-                overlay.style.display = "block";
-                content[x].style.display = "block";
-            });
-            document.getElementsByClassName("exit")[x].addEventListener("click", () => {
-                modal.style.display = "none";
-            });
-        }
 
         var overlayHTML = "";
         $.each(data.results, function (i, item) {
@@ -49,7 +37,6 @@
             overlayHTML += "<p class='modalBirth'>" + birthdayLabel.bold() + item.dob + "</p></div></div>";
         });
         $(".modal").prepend(overlayHTML);
-        overlay.style.display = "none";
         
         function addListeners() {
             addEmployeeListener(0);
@@ -68,5 +55,16 @@
         addListeners();
     }
     $.getJSON(apiRandom, dataRandom, callbackRandom);
+
+    function addEmployeeListener(x) {
+        employeeBox[x].addEventListener("click", () => {
+            modal.style.display = "";
+            overlay.style.display = "block";
+            content[x].style.display = "block";
+        });
+        document.getElementsByClassName("exit")[x].addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+    }
 
 }); //end ready
