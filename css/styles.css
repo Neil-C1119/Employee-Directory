@@ -11,7 +11,7 @@ h2 {
     font-family: 'Raleway', sans-serif;
     letter-spacing: 2px;
     font-weight: normal;
-    margin: 35px 0 25px 55px;
+    margin: 35px 0 25px 60px;
 }
 
 h4 {
@@ -20,7 +20,7 @@ h4 {
 }
 
 p {
-    font-size: 14px;
+    font-size: .85em;
 }
 
 .text {
@@ -28,7 +28,6 @@ p {
     font-family: sans-serif;
     float: left;
     display: block;
-    max-height: 36%;
     max-width: 33%;
     color: black;
 }
@@ -55,6 +54,15 @@ p {
         box-shadow: #5B5B72 0 0 25px;
     }
 
+.employeeName {
+    text-transform: capitalize;
+
+}
+
+.employeeLocation {
+    text-transform: capitalize;
+}
+
 .overlay {
     display: none;
     position: absolute;
@@ -67,15 +75,15 @@ p {
     opacity: .60;
 }
 
-h3 {
+.exit {
     height: 22px;
     width: 54px;
     text-align: center;
     font-family: sans-serif;
-    color: red;
+    color: white;
     position: sticky;
     top: 0;
-    background: black;
+    background: #5c84c4;
     border-radius: 10%;
     text-decoration: none;
 }
@@ -95,10 +103,6 @@ h3 {
     opacity: 1;
 }
 
-.divider {
-    border: 1px solid black;
-}
-
 .modalImage {
     display: block;
     margin-left: auto;
@@ -108,4 +112,32 @@ h3 {
 
 .modalText {
     text-align: center;
+}
+
+    .modalText p {
+        font-size: 1.25em;
+        font-family: sans-serif;
+    }
+
+    .modalText h4 {
+        font-size: 1.5em;
+        margin-top: 15px;
+    }
+
+.modalPhone {
+    padding-top: 20px;
+    border-top: 1px solid rgba(92, 132, 196, .4);
+}
+
+.modalLocation {
+    text-transform: capitalize;
+}
+
+.modalName {
+    text-transform: capitalize;
+}
+
+.modalUsername {
+    padding-top: 20px;
+    border-top: 1px solid rgba(92, 132, 196, .4);
 }
