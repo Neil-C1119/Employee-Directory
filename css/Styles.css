@@ -14,6 +14,19 @@ h2 {
     margin: 35px 0 25px 60px;
 }
 
+.search {
+    padding-bottom: 20px;
+    margin-right: 45px;
+}
+
+.searchButton {
+    float: right;
+}
+
+.searchField {
+    float: right;
+}
+
 h4 {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
@@ -54,6 +67,32 @@ p {
         box-shadow: #5B5B72 0 0 25px;
     }
 
+.leftNav {
+    background-image: url(../img/Arrow.svg);
+    float: left;
+    height: 30px;
+    width: 30px;
+    transform: rotate(90deg);
+    transition-duration: .4s;
+}
+
+.rightNav {
+    background-image: url(../img/Arrow.svg);
+    float: right;
+    height: 30px;
+    width: 30px;
+    transform: rotate(-90deg);
+    transition-duration: .4s;
+}
+
+    .rightNav:hover,
+    .leftNav:hover {
+        padding: 2px;
+        background-color: #3381AC;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
 .employeeName {
     text-transform: capitalize;
 
@@ -81,9 +120,7 @@ p {
     text-align: center;
     font-family: sans-serif;
     color: white;
-    position: sticky;
-    top: 0;
-    background: #5c84c4;
+    background: #3381AC;
     border-radius: 10%;
     text-decoration: none;
 }
@@ -140,4 +177,11 @@ p {
 .modalUsername {
     padding-top: 20px;
     border-top: 1px solid rgba(92, 132, 196, .4);
+}
+
+div .credit {
+    font-family: sans-serif;
+    font-size: .75em;
+    text-align: center;
+    padding-top: 30px;
 }
