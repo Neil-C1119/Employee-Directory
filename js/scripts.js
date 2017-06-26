@@ -57,10 +57,32 @@
             addEmployeeListener(11);
         }
         addListeners();
+
+        $.each(data.results, function (i, item) {
+            let searchField = document.getElementsByClassName("searchField")[0];
+            let searchButton = document.getElementsByClassName("searchButton")[0];
+            let firstName = item.name.first.toLowerCase();
+            let lastName = item.name.last.toLowerCase();
+            let username = item.login.username.toLowerCase();
+            let li = document.getElementsByTagName("LI");
+            let searchResults = [];
+            searchButton.addEventListener("click", () => {
+                let $searchInput = $(searchField).val().toLowerCase();
+                if ($(searchField).val().length > 0) {
+                    if (firstName.includes($searchInput) || lastName.includes($searchInput) || username.includes($searchInput)) {
+                        $(li[i]).show();
+                        console.log("yes");
+                    }
+                    else if (firstName.includes($searchInput) === false || lastName.includes($searchInput) === false || username.includes($searchInput) === false) {
+                        $(li[i]).hide();
+                    }
+                }
+            });
+        });
     }
     $.getJSON(apiRandom, dataRandom, callbackRandom);
 
-                                           //ADD FUNCTIONALITY WHERE INNER DETAILS ARE REPLACED AND ONLY ONE MODAL BOX/PAIR OF ARROWS/BACK BUTTON IS NEEDED
+                                           //HARDCODE ONE MODAL INTO HTML THEN USE THE INNERHTML TRAIT TO CHANGE WHICH EMPLOYEE IS SHOWING
         function addEmployeeListener(x) {   //x is the box to listen for
             let rightNav = document.getElementsByClassName("rightNav");   //right arrow
             let leftNav = document.getElementsByClassName("leftNav");   //left arrow
@@ -96,4 +118,6 @@
                 }
             });
         }
+        
+
 }); //end ready
