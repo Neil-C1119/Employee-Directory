@@ -71,7 +71,6 @@
                 if ($(searchField).val().length > 0) {
                     if (firstName.includes($searchInput) || lastName.includes($searchInput) || username.includes($searchInput)) {
                         $(li[i]).show();
-                        console.log("yes");
                     }
                     else if (firstName.includes($searchInput) === false || lastName.includes($searchInput) === false || username.includes($searchInput) === false) {
                         $(li[i]).hide();
@@ -81,8 +80,7 @@
         });
     }
     $.getJSON(apiRandom, dataRandom, callbackRandom);
-
-                                           //HARDCODE ONE MODAL INTO HTML THEN USE THE INNERHTML TRAIT TO CHANGE WHICH EMPLOYEE IS SHOWING
+    
         function addEmployeeListener(x) {   //x is the box to listen for
             let rightNav = document.getElementsByClassName("rightNav");   //right arrow
             let leftNav = document.getElementsByClassName("leftNav");   //left arrow
